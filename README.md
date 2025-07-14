@@ -7,8 +7,8 @@ Automate fetching Wayback Machine snapshots and generating a WordPress WXR impor
 
 1. Clone this repository:  
    ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+   git clone https://github.com/ararai1991/webarchive-wp-import
+   cd webarchive-wp-import
    ```
 2. (Optional) Create and activate a virtual environment:  
    ```bash
