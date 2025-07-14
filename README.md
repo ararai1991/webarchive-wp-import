@@ -10,12 +10,7 @@ Automate fetching Wayback Machine snapshots and generating a WordPress WXR impor
    git clone https://github.com/ararai1991/webarchive-wp-import
    cd webarchive-wp-import
    ```
-2. (Optional) Create and activate a virtual environment:  
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-3. Install required libraries:  
+2. Install required libraries:  
    ```bash
    pip install -r requirements.txt
    ```
