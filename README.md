@@ -59,3 +59,29 @@ How to run git clone https://github.com/ararai1991/webarchive-wp-import
 cd webarchive-wp-import
 pip install -r requirements.txt
 python webarchive_importer.py --input samples/urls.txt --output samples/output.xml
+
+
+---
+
+## 💬 Additional Notes
+
+This project was designed and implemented entirely by **Alireza Rezaei** as part of the **CS50x 2025 Final Project**.  
+It represents an exploration into web automation, HTML parsing, and data migration between platforms.  
+
+The core motivation behind this project was to simplify the process of restoring lost web content from the Internet Archive and make it accessible again through WordPress.  
+While developing the tool, I focused heavily on clean code organization, modularity, and error handling.  
+
+By completing this project, I have not only learned more about Python scripting and API usage,  
+but also about how to design real-world tools that address practical problems in digital archiving and web restoration.
+
+---
+
+## 🧩 Reflection
+
+CS50x has been an incredible journey that strengthened my understanding of programming fundamentals and project design.  
+Creating this final project helped me consolidate everything I learned throughout the course — from loops and conditionals to file I/O, APIs, and software design.  
+It was both challenging and rewarding to turn an idea into a fully functional piece of software.
+
+Thank you to the CS50 team for providing the structure, guidance, and inspiration to bring this project to life.
+
+---
