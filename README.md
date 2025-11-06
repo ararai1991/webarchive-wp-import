@@ -1,62 +1,61 @@
-# webarchive-wp-import
-Automate fetching Wayback Machine snapshots and generating a WordPress WXR import for your wordpress blog.
+WebArchive WP Import
 
-# README
+Video Demo: https://cdn.imgurl.ir/uploads/n861381_cs50xFINAL-output.mp4
 
-## Installation
+Description:
 
-1. Clone this repository:  
-   ```bash
-   git clone https://github.com/ararai1991/webarchive-wp-import
-   cd webarchive-wp-import
-   ```
-2. Install required libraries:  
-   ```bash
-   pip install -r requirements.txt
-   ```
+Overview WebArchive WP Import is a tool designed to import archived web pages from the Internet Archive’s Wayback Machine into WordPress. It assists website administrators in restoring lost or deleted content by transforming archived HTML data into WordPress‐compatible posts.
 
-## Required Libraries
+Technical Details
 
-- `requests`  
-- `beautifulsoup4`  
-- `lxml`  
-- `python-dateutil` (optional, for advanced date parsing)  
-- Standard libraries: `datetime`, `urllib`, `time`, `sys`, `re`, `random`
+Language: Python 3
+Key Libraries: requests, BeautifulSoup4, xml.etree.ElementTree, argparse
+Input: list of URLs (via file or command‐line)
+Output: WordPress import file (XML)
+Sample command: python webarchive_importer.py --input urls.txt --output output.xml
+Features
 
-Or install individually:  
-```bash
-pip install requests beautifulsoup4 lxml python-dateutil
-```
+Fetches archived pages automatically via Wayback Machine
+Parses HTML, extracts content (images/links), and rebuilds internal structure
+Converts content to WordPress import format (WXR)
+Supports batch processing of multiple URLs/domains
+Project Structure webarchive-wp-import/ │ ├── webarchive_importer.py # Main script
+├── parser/ │ ├── html_parser.py # Module to parse HTML content
+│ └── utils.py # General utility functions
+├── samples/ │ ├── urls.txt # Example input file
+│ └── output.xml # Example WP import file
+├── requirements.txt # Python dependencies
+└── README.txt # This file
 
-## Configuration
+How It Works
 
-### `export.py`
+Prepare a text file (e.g., urls.txt) containing the list of archived URLs you want to restore.
+Run the script to fetch and process each URL.
+The script extracts content, cleans up markup, rebuilds links/images, and packages everything into a WordPress import file.
+In WordPress, go to Tools → Import → WordPress, and upload the resulting XML to restore posts.
+Design Choices
 
-Edit the `params` dictionary and replace the placeholder with your WordPress blog URL:
+Used BeautifulSoup instead of regex for HTML parsing to handle messy markup robustly.
+Chose plain XML output (rather than a database) for compatibility with WordPress’s native importer.
+Modular structure to allow future extensions (GUI, REST API, etc.).
+Challenges
 
-```python
-params = {
-    "url": "ENTER-YOUR-WEB-SITE-URL-HERE/*",
-    # …
-}
-```
+Handling inconsistencies in archived HTML (broken links, missing images) required heuristic fixes.
+Converting arbitrary HTML into structured WordPress post format with metadata (title/date) was non-trivial.
+Ensuring batch processing scales and avoids redundant downloads.
+Lessons Learned
 
-### `request.py`
+Gained experience working with web APIs, HTTP requests and parsing XML/HTML.
+Developed scripting proficiency for command‐line utilities with arguments and flags.
+Improved modular design and separation of concerns in a real‐world tool.
+Future Improvements
 
-In the WXR template section, replace the placeholders with your site title and URL:
+Add a graphical user interface (GUI) for easier use by non-technical users.
+Support translation of content and automatic metadata enrichment.
+Integrate a direct WordPress plugin version instead of external script.
+Acknowledgements Thank you to the CS50x 2025 instructors and staff for providing the curriculum and inspiration. Portions of this project were developed with help from ChatGPT and GitHub Copilot (limited assistance).
 
-```xml
-<title>ENTER-YOUR-TITLE</title>
-<link>ENTER-YOUR-WEBSITE-URL-HERE</link>
-```
-
-## How It Works
-
-1. **export.py**  
-   - Queries the Internet Archive CDX API for snapshots of your blog posts.  
-   - Saves each post URL and timestamp into `export-urls.txt`.
-
-2. **request.py**  
-   - Reads `export-urls.txt` and downloads each archived HTML snapshot.  
-   - Uses BeautifulSoup to parse title, content, author, and timestamp.  
-   - Generates a WordPress WXR XML file (`final_wp_import.xml`) ready for import.
+How to run git clone https://github.com/ararai1991/webarchive-wp-import
+cd webarchive-wp-import
+pip install -r requirements.txt
+python webarchive_importer.py --input samples/urls.txt --output samples/output.xml
