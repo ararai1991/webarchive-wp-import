@@ -121,5 +121,39 @@ I am proud of this tool not just for its code, but for the learning it encapsula
 
 ---
 
-*This README was written in fulfillment of CS50x’s Final Project submission requirements.*
+---
+
+## 🧠 Deep Dive: Development Process
+
+This project evolved through multiple iterations. The initial prototype simply fetched a single archived page, but over time, the architecture expanded to handle batch downloads, improved HTML parsing, and conversion to WordPress XML format.  
+Throughout the process, I emphasized readability, comments, and modularization, so that others could contribute or adapt the project easily.  
+
+Another challenge was dealing with pages that contained broken or outdated HTML tags. I used BeautifulSoup’s flexibility to recover usable structures, normalize links, and identify missing media files. I also added exception handling to skip problematic pages instead of crashing the process.  
+
+Testing was performed across several URL sets, ensuring that the tool worked for both single-domain and multi-domain archives. The XML output was validated against the WordPress import schema.  
+
+---
+
+## 💭 Broader Impact
+
+The project demonstrates how open-source technology can be used to preserve digital history. Many websites vanish from the internet each year, and tools like this can restore lost information for research, journalism, and education.  
+By automating this process, anyone can rebuild an old blog, company site, or digital archive without technical complexity.  
+
+The tool also highlights how programming can serve as a bridge between digital archaeology and modern content management systems. It’s a small step toward democratizing access to lost web knowledge.
+
+---
+
+## 🏆 Final Thoughts
+
+Working on this project was both technically and personally rewarding. I learned about web data preservation, XML generation, modular software design, and most importantly — perseverance through debugging!  
+
+If I had more time, I would expand this project into a full-featured WordPress plugin or web interface, allowing non-programmers to restore archives with just a few clicks.  
+
+Ultimately, this project reflects the spirit of CS50: curiosity, creativity, and problem-solving.  
+It’s not just about writing code — it’s about using technology to make something meaningful.
+
+---
+
+*This project was submitted as part of Harvard’s CS50x 2025 final project. It embodies the culmination of everything I learned in computer science fundamentals, programming, and problem-solving.*
+
 
